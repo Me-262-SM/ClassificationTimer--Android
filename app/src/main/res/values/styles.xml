@@ -1,0 +1,35 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="LiveStyle">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowAnimationStyle">@null</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
+    <style name="Transparent" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+    </style>
+
+    <style name="ToolBarPopupThem" parent="Widget.AppCompat.Light.PopupMenu.Overflow">
+        <!-- 设置popupMenu背景颜色-->
+        <item name="android:colorBackground">@color/colorPrimary</item>
+        <!--设置popupMenu弹出位置不覆盖toolbar -->
+        <item name="overlapAnchor">false</item>
+        <!-- 修改字体大小 -->
+        <item name="android:textSize">15sp</item>
+        <!-- 修改字体颜色 -->
+        <item name="android:textColor">#fff</item>
+    </style>
+
+
+</resources>

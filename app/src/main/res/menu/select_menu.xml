@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/it_chageAge"
+        android:title="修改年龄阈值" />
+    <item
+        android:id="@+id/it_reset"
+        android:title="清除死亡列表" />
+    <item
+        android:id="@+id/it_add"
+        android:title="增加监控应用" />
+</menu>
