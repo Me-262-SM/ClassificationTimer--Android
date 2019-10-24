@@ -45,7 +45,7 @@ import java.util.TimerTask;
 public class MyService extends Service {
     public final static String BroadcastName = "face_parameter";
     public static int LIMIT_AGE = 25;   //年龄阈值
-    public static int LIMIT_TIME = 720; //每五秒为一次周期，控制此变量来控制定时检测的时间间隔,默认一小时
+    public static int LIMIT_TIME = 12; //每五秒为一次周期，控制此变量来控制定时检测的时间间隔,默认一分钟
     private MyReceiver myReciever;
     private SharedPreferences sharedPreferences;
     private SharedPreferences.Editor editor;

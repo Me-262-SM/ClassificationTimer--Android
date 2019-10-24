@@ -123,6 +123,25 @@ public class SettingActivity extends AppCompatActivity {
                         });
                 builder.show();
                 break;
+            case R.id.it_chageTime:
+                final EditText input = new EditText(SettingActivity.this);
+                input.setInputType(InputType.TYPE_CLASS_NUMBER);
+                input.setHint("目前的时间阈值为 ："+MyService.LIMIT_TIME/12+"分");
+                AlertDialog.Builder builder2 = new AlertDialog.Builder(SettingActivity.this);
+                builder2.setTitle("请输入更改后的时间")
+                        .setCancelable(false)
+                        .setView(input)
+                        .setNegativeButton("取消",null)
+                        .setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                int time = Integer.valueOf(input.getText().toString());
+                                MyService.LIMIT_TIME = time*12;
+                                Toast.makeText(SettingActivity.this,"修改成功！ 时间阈值为 "+MyService.LIMIT_TIME/12+" 分",Toast.LENGTH_LONG).show();
+                            }
+                        });
+                builder2.show();
+                break;
         }
         return true;
     }
