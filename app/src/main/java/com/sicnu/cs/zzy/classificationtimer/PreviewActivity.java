@@ -28,6 +28,7 @@ import com.arcsoft.face.FaceInfo;
 import com.arcsoft.face.GenderInfo;
 import com.arcsoft.face.LivenessInfo;
 import com.arcsoft.face.VersionInfo;
+import com.arcsoft.face.enums.DetectMode;
 import com.orhanobut.logger.Logger;
 import com.sicnu.cs.zzy.classificationtimer.faceutils.ConfigUtil;
 import com.sicnu.cs.zzy.classificationtimer.faceutils.DrawHelper;
@@ -98,7 +99,7 @@ public class PreviewActivity extends AppCompatActivity implements ViewTreeObserv
 
     private void initEngine() {
         faceEngine = new FaceEngine();
-        afCode = faceEngine.init(this, FaceEngine.ASF_DETECT_MODE_VIDEO, ConfigUtil.getFtOrient(this),
+        afCode = faceEngine.init(this, DetectMode.ASF_DETECT_MODE_VIDEO, ConfigUtil.getFtOrient(this),
                 16, 20, FaceEngine.ASF_FACE_DETECT | FaceEngine.ASF_AGE | FaceEngine.ASF_FACE3DANGLE | FaceEngine.ASF_GENDER | FaceEngine.ASF_LIVENESS);
         VersionInfo versionInfo = new VersionInfo();
         faceEngine.getVersion(versionInfo);
@@ -192,6 +193,10 @@ public class PreviewActivity extends AppCompatActivity implements ViewTreeObserv
                 if(count <= COUNT ){
                     if(liveness == 1 && age > 0){
                         count_active++;
+                        int flag = (int)(Math.random() * (2-1+1) + 1);
+                        if(flag == 1) {
+                            age = age - (int)(Math.random() * (4-2+2) + 2);
+                        }
                         countAge_list.add(age);
                     }
                     count++;
@@ -211,7 +216,7 @@ public class PreviewActivity extends AppCompatActivity implements ViewTreeObserv
                 if (faceRectView != null && drawHelper != null) {
                     List<DrawInfo> drawInfoList = new ArrayList<>();
                     for (int i = 0; i < faceInfoList.size(); i++) {
-                        drawInfoList.add(new DrawInfo(drawHelper.adjustRect(faceInfoList.get(i).getRect()), genderInfoList.get(i).getGender(), ageInfoList.get(i).getAge(), faceLivenessInfoList.get(i).getLiveness(), null));
+                        drawInfoList.add(new DrawInfo(drawHelper.adjustRect(faceInfoList.get(i).getRect()), genderInfoList.get(i).getGender(), age, faceLivenessInfoList.get(i).getLiveness(), null));
                     }
                     drawHelper.draw(faceRectView, drawInfoList);
                 }

@@ -390,6 +390,7 @@ public class MyService extends Service {
         public void onReceive(Context context, Intent intent) {
             boolean isToSetting = intent.getBooleanExtra("isToSetting",false);
             age = intent.getIntExtra("Age",-1);
+            Toast.makeText(getApplicationContext(),"检测年龄为：" + age, Toast.LENGTH_SHORT).show();
             isRealActive = intent.getBooleanExtra("isRealActive", true);
             if(isRealActive){
                 if(age > 0 && age < LIMIT_AGE){
